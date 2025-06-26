@@ -41,8 +41,7 @@ Après exécution, Gitea sera accessible à l'adresse :
 ## Remarques
 
 - Le mot de passe MySQL est défini dans la variable `MYSQL_USER_PASSWORD`.
-- Le script suppose que la sauvegarde de Gitea se trouve dans `/vagrant`.
-  /vagrant/gitea-backup-XXXX-XX-XX/
+- Le script suppose que la sauvegarde de Gitea se trouve dans `/vagrant`. /vagrant/gitea-backup-XXXX-XX-XX/
     Dans gitea-backup-XXXX-XX-XX On a:
       la base de donnée, etc, usr, var
 - Il faut lancer ce script restore.sh avec les droits administrateur (sudo).
