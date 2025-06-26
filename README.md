@@ -23,7 +23,7 @@ Le script restore.sh automatise l'installation et la configuration de Gitea, un 
    Configure Gitea pour qu'il démarre automatiquement avec le système.
 
 6. **Restauration depuis la dernière sauvegarde**  
-   Trouve la dernière sauvegarde disponible et restaure les fichiers, la configuration et la base de données.
+   Trouve la dernière sauvegarde disponible: /vagrant/gitea-backup-XXXX-XX-XX/ et restaure les fichiers, la configuration et la base de données.
 
 7. **Configuration réseau**  
    Modifie la configuration de Gitea pour fonctionner sur l'adresse IP `192.168.56.26` et le port `3000`.
@@ -41,8 +41,13 @@ Après exécution, Gitea sera accessible à l'adresse :
 ## Remarques
 
 - Le mot de passe MySQL est défini dans la variable `MYSQL_USER_PASSWORD`.
-- Le script suppose que la sauvegarde de Gitea se trouve dans `/vagrant`. /vagrant/gitea-backup-XXXX-XX-XX/
-    Dans gitea-backup-XXXX-XX-XX On a:
-      la base de donnée, etc, usr, var
+- Le dossier de sauvegarde a un nom du type /vagrant/`gitea-backup-XXXX-XX-XX/`.
+   - À l'intérieur de ce dossier, on trouve plusieurs sous-dossiers importants :  
+     - `backup/` : contient la base de données SQL.  
+     - `etc/` : contient la configuration de Gitea (comme `app.ini`).  
+     - `usr/`  
+     - `var/` : contient les données de Gitea (dépôts, fichiers, etc.).  
+   - Le script copie ces fichiers et dossiers aux emplacements appropriés pour restaurer complètement Gitea.
+  
 - Il faut lancer ce script restore.sh avec les droits administrateur (sudo).
 
